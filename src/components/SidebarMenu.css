@@ -1,0 +1,119 @@
+/* Top row: menu button + search */
+.sidebar__top {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 12px 8px;
+}
+
+.sidebar__top .search {
+  flex: 1;
+  margin: 0;
+}
+
+.menu {
+  position: relative;
+  flex: none;
+}
+
+.menu__toggle {
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.menu__toggle:hover,
+.menu__toggle--open {
+  background: var(--bg-muted);
+}
+
+.menu__toggle svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: var(--text-muted);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+/* Dropdown menu */
+.menu__popup {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 10;
+  min-width: 220px;
+  padding: 6px 0;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 24px rgba(14, 14, 16, 0.18);
+
+  /* closed state: hidden and slightly scaled down from the top-left corner */
+  opacity: 0;
+  transform: scale(0.9);
+  transform-origin: top left;
+  visibility: hidden;
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0s linear 0.15s;
+}
+
+.menu__popup--open {
+  opacity: 1;
+  transform: scale(1);
+  visibility: visible;
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0s;
+}
+
+.menu__item {
+  width: calc(100% - 12px);
+  margin: 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 9px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.menu__item:hover {
+  background: rgba(14, 14, 16, 0.06);
+}
+
+.menu__item svg {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.menu__divider {
+  height: 1px;
+  margin: 6px 0;
+  background: var(--border);
+}
+
+/* The pencil icon is filled, not stroked */
+.sidebar .fab svg {
+  width: 24px;
+  height: 24px;
+  fill: #fff;
+  stroke: none;
+}

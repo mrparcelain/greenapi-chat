@@ -1,0 +1,114 @@
+/* Telegram-style dark theme (the only theme). Imported last in main.tsx to override other styles. */
+
+:root {
+  color-scheme: dark;
+
+  --bg: #212121;
+  --bg-muted: #2c2c2c;
+  --chat-bg: #0f0f0f;
+  --border: #303030;
+  --text: #ffffff;
+  --text-muted: #aaaaaa;
+  --hover: rgba(255, 255, 255, 0.08);
+
+  --accent-soft: #2b5a14;
+  --bubble-in: #212121;
+  --bubble-out: #2b5a14;
+  --danger: #ff595a;
+
+  background: #0e0e10;
+}
+
+.search input {
+  background: #181818;
+}
+
+.search input::placeholder {
+  color: var(--text-muted);
+}
+
+.search input:focus {
+  background: #181818;
+  border-color: var(--accent);
+}
+
+.search__clear:hover,
+.icon-button:hover,
+.menu__item:hover {
+  background: var(--hover);
+}
+
+.banner {
+  background: rgba(255, 170, 0, 0.12);
+  color: #ffb74d;
+}
+
+.menu__popup {
+  background: rgba(33, 33, 33, 0.92);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+}
+
+.menu__toggle:hover,
+.menu__toggle--open {
+  background: var(--hover);
+}
+
+.panel {
+  background: #181818;
+}
+
+.panel__card {
+  background: var(--bg);
+}
+
+.panel__input {
+  background: transparent;
+}
+
+.bubble {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.bubble--out .bubble__meta {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.bubble--out .bubble__status--read {
+  color: #fff;
+}
+
+.chat-list:hover,
+.chat__messages:hover {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.chat-item:not(.chat-item--active):hover {
+  background: var(--hover);
+}
+
+/* The textarea is transparent so the composer stays one color */
+.composer {
+  background: var(--bg);
+}
+
+.composer textarea,
+.composer textarea:hover,
+.composer textarea:focus {
+  background: transparent;
+  color: var(--text);
+}
+
+.composer textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.send-button svg {
+  width: 22px;
+  height: 22px;
+  fill: var(--accent);
+  stroke: none;
+}
+
+.send-button:disabled svg {
+  fill: var(--text-muted);
+}

@@ -1,0 +1,48 @@
+/* Incoming message row: avatar on the left, bubble on the right */
+.msg-row {
+  align-self: flex-start;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  max-width: min(568px, 88%);
+}
+
+.msg-row .bubble {
+  max-width: 100%;
+}
+
+/* Every message in a run reserves avatar space so bubbles line up */
+.msg-row__avatar {
+  flex: none;
+  width: 36px;
+}
+
+.msg-row .msg-avatar {
+  width: 36px;
+  height: 36px;
+  font-size: 15px;
+}
+
+/* Only the last bubble in a run keeps the tail corner */
+.msg-row:not(.msg-row--last) .bubble--in {
+  border-bottom-left-radius: var(--radius);
+}
+
+.bubble__name {
+  flex-basis: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.composer__send {
+  display: grid;
+  place-items: center;
+}
+
+.composer__send svg {
+  width: 20px;
+  height: 20px;
+  margin-left: 2px; /* optical centering */
+  fill: #fff;
+}

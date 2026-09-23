@@ -1,0 +1,159 @@
+/* Telegram-style login screen */
+
+.tg-login {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  overflow-y: auto;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+  background: var(--bg);
+}
+
+.tg-login__form {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.tg-login__logo {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 28px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--accent);
+}
+
+.tg-login__logo svg {
+  width: 76px;
+  height: 76px;
+  margin-left: 8px; /* optical centering */
+  fill: #fff;
+}
+
+.tg-login__title {
+  margin: 0 0 8px;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.tg-login__subtitle {
+  margin: 0 0 40px;
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+
+/* Floating label: inside the empty field, on the border when focused or filled */
+.tg-field {
+  position: relative;
+  display: block;
+  margin-bottom: 22px;
+}
+
+.tg-field input {
+  width: 100%;
+  height: 54px;
+  padding: 0 16px;
+  border: 1px solid #3a3a3a;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text);
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tg-field input:hover {
+  border-color: #5a5a5a;
+}
+
+.tg-field input:focus {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent); /* 2px border without shifting the text */
+}
+
+.tg-field__label {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  padding: 0 4px;
+  transform: translateY(-50%);
+  background: var(--bg); /* cuts the border behind the label */
+  color: var(--text-muted);
+  font-size: 16px;
+  pointer-events: none;
+  transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+}
+
+.tg-field input:focus + .tg-field__label,
+.tg-field input:not(:placeholder-shown) + .tg-field__label {
+  top: 0;
+  font-size: 13px;
+}
+
+.tg-field input:focus + .tg-field__label {
+  color: var(--accent);
+}
+
+/* Keep browser autofill from turning the field light */
+.tg-field input:-webkit-autofill {
+  -webkit-text-fill-color: var(--text);
+  box-shadow: 0 0 0 100px var(--bg) inset;
+  caret-color: var(--text);
+}
+
+.tg-login__error {
+  margin: -8px 4px 16px;
+  color: var(--danger);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.tg-login__button {
+  height: 54px;
+  margin-top: 8px;
+  border: 0;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: var(--accent);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.tg-login__button:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.tg-login__button:disabled {
+  cursor: default;
+}
+
+.tg-login__spinner {
+  width: 24px;
+  height: 24px;
+  border: 2.5px solid #fff;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: tg-login-spin 0.7s linear infinite;
+}
+
+@keyframes tg-login-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
