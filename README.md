@@ -27,8 +27,6 @@ npm install
 npm run dev
 ```
 
-Откройте адрес, который покажет Vite (обычно http://localhost:5173).
-
 ## Как пользоваться
 1. В [личном кабинете GREEN-API](https://console.green-api.com) создайте и авторизуйте инстанс.
 2. Введите `idInstance` и `apiTokenInstance`. Поле `apiUrl` заполняется само по первым четырём цифрам `idInstance`; если в кабинете указан другой адрес, вставьте его.
